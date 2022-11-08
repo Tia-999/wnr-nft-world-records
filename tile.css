@@ -1,0 +1,42 @@
+.tile {
+    color: white;
+    border-radius: 30px;
+    background-color: #141414;
+    margin-bottom: 50px;
+    height: 500px;
+}
+
+.tile .tileheader {
+background-color: #242424;
+border-radius: 30px;
+border-bottom-left-radius: 0px;
+border-bottom-right-radius: 0px;
+padding: 15px;
+padding-left: 30px;
+padding-right: 30px;
+
+}
+
+.tilecreator{
+    display: inline-block;
+    float: right;
+}
+.tiletitle{
+   display: inline-block;
+  
+}
+.landingpagecard{
+    margin-left: 150px;
+}
+.tile img{
+    width: 100%;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+.tilecontent{
+display:block;
+margin-left: auto;
+margin-right: auto;
+}
