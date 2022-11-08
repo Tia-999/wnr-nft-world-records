@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Only Links</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+ 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+      />
+  <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="tile.css">
+    
+    <link href="nav.css" rel="stylesheet" />
+
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <!-- JS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <script >
+      
+      function homePage(){
+          window.open("index.html", "_self");
+          console.log("switching to home page");
+      }
+
+      function gotoCreateTile() {
+        window.open("createtile.html", "_self");
+          console.log("switching to create tile page");
+      }
+      let file = {};
+      function chooseFile(e){
+        console.log("choosefileworking")
+              file = e.target.files[0];
+            }
+      
+          </script>
+
+</head>
+<body>
+
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <header>
+    <nav class="">
+      <table style="">
+        <tr>
+          <td>
+            <h3 class="title3"><strong><a href="/index.html" style="color: white;text-decoration: none;">WNR.</a></strong></h3>
+          </td>
+          <td>
+            <ul>
+              <li><a href="/app/index.html">Hall of WNRs</a></li>
+              <li><a href="/app/makeanft.html">Make a Record</a></li>
+              <li><a href="/about_us.html">About Us</a></li>
+              <li><a href="/support_us.html">Support</a></li>
+            </ul>
+          </td>
+          
+        </tr>
+      </table>
+    </nav>
+  </header>
+  
+  <div class="gohomeback" id="homenotloggedin">
+    <button class="gohome" onclick="homePage()">&#8592 GO BACK</button>
+    </div>
+  <div class="container "> 
+ 
+    
+    <div class="twelve columns " >
+
+    <!-- login up form --------------------------->
+    <div class="loginform" id="loginform" style="display: none;">
+        <div class="title">Let's Login.</div>
+        <div class="subtitle">Whats you special password? </div>
+
+        <div class="input-container ic1">
+          <input id="emailLogIn" class="input" type="email" placeholder=" " />
+          <div class="cut"></div>
+          <label for="email" class="placeholder">email</label>
+        </div>
+
+        <div class="input-container ic2">
+          <input id="passwordLogIn" class="input" type="password" placeholder=" " />
+          <div class="cut"></div>
+          <label for="password" class="placeholder">password</label>
+        </div>
+
+        <button type="text" class="submit" id="loginSubmit">submit</button>
+        <div class="subtitle2">NEW HERE?
+          <button type="text" class="subtitle2btn" id="switchToSignUp" >SIGNUP!</button>
+        </div>
+        <div id="errormessageLogin" class = "errormessage">&#128519</div>
+      </div>
+
+
+      <!-- sign up form --------------------------->
+      <div class="signupform" id="signupform" style="display: none;">
+        <div class="title">Let's SignUp.</div>
+        <div class="subtitle">Hop on the ship sir!</div>
+
+        <div class="input-container ic1">
+          <input id="emailSignUp" class="input" type="email" placeholder=" " />
+          <div class="cut"></div>
+          <label for="email" class="placeholder">email</label>
+        </div>
+
+        <div class="input-container ic2">
+          <input id="passwordSignUp" class="input" type="password" placeholder=" " />
+          <div class="cut"></div>
+          <label for="password" class="placeholder">password</label>
+        </div>
+        
+
+        <button type="text" class="submit" id="signupSubmit">NEXT</button>
+
+        <div class="subtitle2">BEEN HERE?
+          <button type="text" class="subtitle2btn" id="switchToLogIn" >LOGIN!</button>
+        </div>
+        <div id="errormessageSignup" class="errormessage">&#128519</div>
+
+      </div>
+
+       <!-- post sign up form --------------------------->
+       <div class="signupform" id="postsignupform" style="display: none;">
+        <div class="title">A Bit More.</div>
+        <div class="subtitle">What should we call you?</div>
+
+        <div class="input-container ic1">
+          <input id="usernamePostSignUp" class="input" type="text" placeholder=" " />
+          <div class="cut"></div>
+          <label for="usernamePostSignUp" class="placeholder">username</label>
+        </div>
+        
+
+        <button type="text" class="submit" id="postSignUpSubmit">submit</button>
+
+      </div>
+
+      <!-- post login --------------------------->
+      
+      </div>
+
+      <div class="twelve columns ">
+      <div class="four columns ">
+        <div class="logoutform centertext" id="logoutform" style="display: none;">
+          <div class="title">Hello.</div>
+          <img class="userphotobig" id="userdp" src="assets/profile.png" alt="">
+          <div class="subtitle">Welcome back!, <div id="username" style="display:inline-block">ddhereusername</div></div>
+          <div class="subtitle" >mail: <div id="usermail" style="display:inline-block;">eDE@d.com</div> </div>
+  
+          <button type="text" class="submit" id="profileMoreBtn">MORE</button>
+      </div>
+
+      <div id="profilemore" class="logoutform" style="display: none;"  style="display: none;">
+        <button type="text" class="submit" id="updateprofilebtn">DP & USERNAME</button>
+        <!-- <button type="text" class="submit" onclick="gotoCreateTile()">CREATE TILE</button> -->
+        <button type="text" class="submit" id="logoutSubmit">LOGOUT</button>
+        <button type="text" class="submit" id="backtoProfileBtn">BACK</button>
+
+      </div>
+
+      <div class="logoutform centertext" id="updateprofile" style="display: none;">
+        <div class="title">Update Things.</div>
+
+        <div class="photochangediv">
+          <img class="userphotobigchange" id="userdp2" src="assets/profile.png" alt="">
+          <button class="userphotochangebtn" id="changePhotoBtn">change</button>
+        </div>
+
+        <div class="subtitle" >username: <div id="username2"  style="display:inline-block;" >ddhereusername</div> </div>
+        <button class = "usernamechangebtn" id="changeUsernameBtn">change</button>
+          <button type="text" class="submit" id="backToMoreBtn">BACK</button>
+        </div>
+        
+        <div class="logoutform" id="changeusernameform" style="display: none;">
+          <div class="title">Enter New Username.</div>
+          <div class="input-container ic1">
+            <input id="newusername" class="input" type="text" placeholder=" " />
+            <div class="cut"></div>
+            <label for="email" class="placeholder">username</label>
+          </div>
+          <button type="text" class="submit" id="submitUsernameChange">SUBMIT</button>
+          <button type="text" class="submit" id="dontChangeUsernameBtn">BACK</button>
+      </div>
+
+      <div class="logoutform" id="changephotoform" style="display: none;">
+        <div class="title">Upload New Photo.</div>
+        <input type="file" onchange="chooseFile(event)" id="fileUploader">
+          <button type="text" class="submit" id="submitPhotoChange">SUBMIT</button>
+          <button type="text" class="submit" id="dontChangePhotoBtn">BACK</button>
+      </div>
+      
+      
+      
+
+
+    </div>
+      <div class="eight columns favsection" id="favsection" style="display: none;">
+        <div class="favsheading">Your Profile.</div>
+        <button type="text" class="submit2" id="editBtn">EDIT</button>
+        
+          <div class="favscroll">
+          
+            <form action="">
+
+                <div class="input-container ic1" style="width: 300px;display: inline-block;margin-top: 30px">
+                  <input class="input" id="fname" type="text" placeholder=" " />
+                  <div class="cut"></div>
+                  <label for="fname" class="placeholder">firstname</label>
+                </div> 
+
+                <div class="input-container ic1" style="width: 300px;display: inline-block; margin-left: 30px;margin-top: 30px">
+                  <input class="input" id="lname" type="text" placeholder=" " />
+                  <div class="cut"></div>
+                  <label for="lname" class="placeholder">lastname</label>
+                </div> 
+
+                <div class="input-container ic1" style="width: 150px;display: inline-block; margin-top: 30px">
+                  <input class="input" id="country" type="text" placeholder=" " />
+                  <div class="cut"></div>
+                  <label for="country" class="placeholder">country</label>
+                </div>
+
+                <div class="input-container ic1" style="width: 110px;display: inline-block; margin-left: 30px;margin-top: 30px">
+                  <input class="input" id="age" type="number" placeholder=" " />
+                  <div class="cut"></div>
+                  <label for="age" class="placeholder">age</label>
+                </div>
+
+                <div class="input-container ic1" style="width: 150px;display: inline-block; margin-left: 30px;margin-top: 30px">
+                  <select name="gender" class="input" id="gender" style="font-size: 15px;text-align: center;padding-left: 16px; -webkit-appearance: none;">
+                    <option value="gender">gender</option>
+                    <option value="male">male</option>
+                    <option value="female">female</option>
+                    <option value="others">others</option>
+                  </select>
+                </div>
+
+                <div class="input-container ic1" style="width: 200px;display: inline-block; margin-left: 30px;margin-top: 30px;">
+                  <input class="input" id="dob" type="date" placeholder=" " />
+                  <div class="cut"></div>
+                  <label for="dob" class="placeholder">dob</label>
+                </div>
+
+              
+
+                <div class="input-container ic1" style="width: 440px;display: inline-block;margin-top: 30px">
+                  <input class="input" id="instagram" type="text" placeholder=" " />
+                  <div class="cut"></div>
+                  <label for="instagram" class="placeholder">instagram</label>
+                </div> 
+
+                <div class="input-container ic1" style="width: 440px;display: inline-block;margin-top: 30px">
+                  <input class="input" id="facebook" type="text" placeholder=" " />
+                  <div class="cut"></div>
+                  <label for="facebook" class="placeholder">facebook</label>
+                </div> 
+
+                <div class="input-container ic1" style="width: 440px;display: inline-block;margin-top: 30px">
+                  <input class="input" id="twitter" type="text" placeholder=" " />
+                  <div class="cut"></div>
+                  <label for="twitter" class="placeholder">twitter</label>
+                </div> 
+
+
+                <div class="input-container ic1" style="width: 95%;height: 100px;display: inline-block;margin-top: 30px">
+                  <input class="input" id="bio" type="text" placeholder=" " style="border-radius: 20px;"/>
+                  <div class="cut"></div>
+                  <label for="bio" class="placeholder">bio</label>
+                </div>
+
+            </form>
+         
+
+          </div>
+
+      </div>
+    </div>
+   
+
+<!-- End Document––––––––––––––––––––––––––––––––––––––––––––––––––-->
+
+
+<script src="linkScript.js"></script>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js";
+import { getDatabase,get, ref, set, child, update, remove} from "https://www.gstatic.com/firebasejs/9.5.0/firebase-database.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.5.0/firebase-auth.js";
+import { ref as sref, getStorage, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-storage.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyDudrwO8MYKMltPDS2PQsmF7kX4LpbZdFM",
+  authDomain: "wnriwp.firebaseapp.com",
+  databaseURL: "https://wnriwp-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "wnriwp",
+  storageBucket: "wnriwp.appspot.com",
+  messagingSenderId: "857393965279",
+  appId: "1:857393965279:web:f65efacc67f04e6055a16a"
+};
+
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db= getDatabase(app);
+const auth = getAuth();
+
+var loginBtn = document.getElementById('loginSubmit');
+var signupBtn = document.getElementById('signupSubmit');
+var logoutBtn = document.getElementById('logoutSubmit');
+var postsignupBtn = document.getElementById('postSignUpSubmit');
+var switchToSignUpBtn = document.getElementById("switchToSignUp");
+var switchToLogInBtn = document.getElementById("switchToLogIn");
+var switchToLogInBtn = document.getElementById("switchToLogIn");
+var moreBtn = document.getElementById('profileMoreBtn');
+var backtoProfileBtn = document.getElementById('backtoProfileBtn');
+var updateProfileBtn = document.getElementById('updateprofilebtn');
+var backToMoreBtn = document.getElementById('backToMoreBtn');
+var changeUsernameBtn = document.getElementById('changeUsernameBtn');
+var changePhotoBtn = document.getElementById('changePhotoBtn');
+var dontChangeUsernameBtn = document.getElementById('dontChangeUsernameBtn');
+var dontChangePhotoBtn = document.getElementById('dontChangePhotoBtn');
+var submitUsernameChange = document.getElementById("submitUsernameChange");
+var submitPhotoChange = document.getElementById("submitPhotoChange");
+
+var currentUser;
+var currentUserUsername;
+var currentUserId; 
+
+var loginform = document.getElementById("loginform");
+var signupform = document.getElementById("signupform");
+var logoutform = document.getElementById("logoutform");
+var profilemore = document.getElementById("profilemore");
+var updateprofile = document.getElementById("updateprofile");
+var changeusernameform = document.getElementById("changeusernameform");
+var changephotoform = document.getElementById("changephotoform");
+
+var fname = document.getElementById("fname");
+var lname = document.getElementById("lname");
+var country = document.getElementById("country");
+var age = document.getElementById("age");
+var gender = document.getElementById("gender");
+var dob = document.getElementById("dob");
+var instagram = document.getElementById("instagram");
+var facebook = document.getElementById("facebook");
+var twitter = document.getElementById("twitter");
+var bio = document.getElementById("bio");
+
+
+      var editBtn = document.getElementById("editBtn")
+      editBtn.addEventListener('click', allowEdit);
+      
+      function allowEdit(){
+        var tempinnerHTML = editBtn.innerHTML;
+        if(tempinnerHTML=='EDIT'){
+          editBtn.innerHTML = "SUBMIT"
+          updateProfileFields()
+          fname.disabled = false;
+          lname.disabled = false;
+          country.disabled = false;
+          age.disabled = false;
+          gender.disabled = false;
+          dob.disabled = false;
+          instagram.disabled = false;
+          facebook.disabled = false;
+          twitter.disabled = false;
+          bio.disabled = false;
+        }
+        
+        if(tempinnerHTML=="SUBMIT"){
+          submitProfileChange();
+          editBtn.innerHTML = "EDIT"
+          fname.disabled = true;
+          lname.disabled = true;
+          country.disabled = true;
+          age.disabled = true;
+          gender.disabled = true;
+          dob.disabled = true;
+          instagram.disabled = true;
+          facebook.disabled = true;
+          twitter.disabled = true;
+          bio.disabled = true;
+        }
+      }
+
+      function submitProfileChange(){
+        update(ref(db, 'users/' + currentUserId), {
+          fname: fname.value,
+          lname: lname.value,
+        country: country.value,
+        age: age.value,
+        dob: dob.value,
+        gender: gender.value,
+        instagram: instagram.value,
+        facebook: facebook.value,
+        twitter: twitter.value,
+        bio: bio.value
+      });
+      }
+function updateProfileFields(){
+  console.log("nice")
+  const dbRef = ref(getDatabase());
+      var tempusernamesearch = "users/" + currentUserId;
+      console.log(tempusernamesearch)
+      get(child(dbRef, tempusernamesearch)).then((snapshot) => {
+      if (snapshot.exists()) {
+        fname.value = snapshot.val().fname;
+        lname.value = snapshot.val().lname;
+        country.value = snapshot.val().country;
+        age.value = snapshot.val().age;
+        dob.value = snapshot.val().dob;
+        gender.value = snapshot.val().gender;
+        instagram.value = snapshot.val().instagram;
+        twitter.value = snapshot.val().twitter;
+        facebook.value = snapshot.val().facebook;
+        bio.value = snapshot.val().bio;
+      
+          }
+
+          console.log("dp-"+dp);
+        }).then(setTimeout(changePhoto, 2000));
+}
+window.onload = pageLoad;
+function pageLoad(){
+  fname.disabled = true;
+  lname.disabled = true;
+  country.disabled = true;
+  age.disabled = true;
+  gender.disabled = true;
+  dob.disabled = true;
+  instagram.disabled = true;
+  facebook.disabled = true;
+  twitter.disabled = true;
+  bio.disabled = true;
+  onAuthStateChanged(auth, (user) => {
+    
+    if (user) {  
+
+      const dbRef = ref(getDatabase());
+      var tempusernamesearch = "users/" + user.uid
+
+      console.log(tempusernamesearch);
+
+      get(child(dbRef, tempusernamesearch)).then((snapshot) => {
+      if (snapshot.exists()) {
+        currentUserUsername = snapshot.val().username;
+        dp = snapshot.val().dp; console.log("dp-"+dp);
+        console.log(snapshot.val().username);
+          }
+      loginform.style.display = "none";
+      signupform.style.display = "none";
+      logoutform.style.display = "block";
+      updateLogout();
+        }).then(
+  updateProfileFields());   
+      }
+        else {
+      loginform.style.display = "block";
+      signupform.style.display = "none";
+      logoutform.style.display = "none";
+    }
+  });
+}
+
+
+
+function switchToSignUp(){
+  noerror();
+  loginform.style.display = "none";
+  signupform.style.display = "block";
+}
+function switchToLogIn(){
+  noerror();
+  loginform.style.display = "block";
+  signupform.style.display = "none";
+}
+
+
+function login(){
+    var email = document.getElementById("emailLogIn");
+    var password = document.getElementById("passwordLogIn");
+
+      signInWithEmailAndPassword(auth, email.value, password.value)
+    .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+      console.log(user);
+      // ...
+      loginform.style.display = "none";
+      signupform.style.display = "none";
+      logoutform.style.display = "block";
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(error.code)
+      console.log("-----------------")
+      console.log(error.message)
+      var errorholder = document.getElementById("errormessageLogin")
+      if (error.code=="auth/wrong-password"){
+        errorholder.innerHTML= "Wrong Password &#129300"
+      }
+      if (error.code=="auth/user-not-found"){
+        errorholder.innerHTML= "User Not Found &#128565"
+      }
+    });
+
+  }
+function signup(){
+    var email = document.getElementById("emailSignUp").value;
+    var password = document.getElementById("passwordSignUp").value;
+
+    createUserWithEmailAndPassword(auth, email,password).then(cred => {
+      console.log(cred.user);
+      set(ref(db, 'users/' + cred.user.uid), {
+    uid: cred.user.uid,
+    email: cred.user.email
+      });
+      loginform.style.display = "none";
+    signupform.style.display = "none";
+    postsignupform.style.display = "block";
+    logoutform.style.display = "none";
+    }).catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(error.code)
+      console.log("-----------------")
+      console.log(error.message)
+      var errorholder = document.getElementById("errormessageSignup")
+      if (error.code=="auth/email-already-in-use"){
+        errorholder.innerHTML= "User Already Exists ☝️"
+      }
+    });
+  }
+
+  function noerror(){
+    var errorholder = document.getElementById("errormessageSignup")
+    errorholder.innerHTML= "&#128519"
+    var errorholder = document.getElementById("errormessageLogin")
+    errorholder.innerHTML= "&#128519"
+    var email = document.getElementById("emailSignUp");
+    var password = document.getElementById("passwordSignUp");
+    email.value = "";
+    password.value = "";
+    var email = document.getElementById("emailLogIn");
+    var password = document.getElementById("passwordLogIn");
+    email.value = "";
+    password.value = "";
+  }
+
+  function fillSignUpForm(){
+    var username = document.getElementById("usernamePostSignUp");
+
+    update(ref(db, 'users/' + currentUserId), {
+    username: username.value
+      });
+      currentUserUsername = username.value;
+      loginform.style.display = "none";
+    signupform.style.display = "none";
+    postsignupform.style.display = "none";
+    logoutform.style.display = "block";
+    updateLogout();
+  }
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {      //logged in
+      currentUser = auth.currentUser;
+      currentUserId = user.uid;
+      document.getElementById("favsection").style.display= "block";
+      updateLogout();
+      
+      
+    } else {  //logged out
+      currentUser = "nouserloggedin";
+      currentUserId = "0x00000";
+      document.getElementById("favsection").style.display= "none";
+    }
+  });
+  
+  function updateLogout(){
+     var email = currentUser.email; 
+     var emailPlaceHolder = document.getElementById("usermail");
+     var usernamePlaceHolder = document.getElementById("username");
+     var usernamePlaceHolder2 = document.getElementById("username2");
+     emailPlaceHolder.innerHTML = email;
+     usernamePlaceHolder.innerHTML = currentUserUsername; 
+     usernamePlaceHolder2.innerHTML = currentUserUsername; 
+  }
+  function updateNewUsername(){
+    var username = document.getElementById("newusername");
+    update(ref(db, 'users/' + currentUserId), {
+    username: username.value
+
+      });
+      currentUserUsername = username.value;
+      updateprofile.style.display = "block";
+      changeusernameform.style.display = "none";
+      updateLogout();
+  }
+
+  function logout(){
+    signOut(auth).then(() => {
+      console.log("Logged Out")
+    // Sign-out successful.
+    }).catch((error) => {
+      console.log(error);
+    });
+    loginform.style.display = "block";
+    signupform.style.display = "none";
+    logoutform.style.display = "none";
+    profilemore.style.display = "none";
+
+}
+
+
+
+function showMore() {
+  logoutform.style.display = "none";
+  profilemore.style.display = "block";
+}
+function dontShowMore() {
+  logoutform.style.display = "block";
+  profilemore.style.display = "none";
+}
+
+function updateProfile() {
+  profilemore.style.display = "none";
+  updateprofile.style.display = "block";
+  updateLogout();
+}
+function dontUpdateProfile() {
+  profilemore.style.display = "block";
+  updateprofile.style.display = "none";
+}
+
+function updateUsername() {
+  updateprofile.style.display = "none";
+  changeusernameform.style.display = "block";
+}
+function dontUpdateUsername() {
+  updateprofile.style.display = "block";
+  changeusernameform.style.display = "none";
+}
+
+function updatePhoto() {
+  updateprofile.style.display = "none";
+  changephotoform.style.display = "block";
+}
+function dontUpdatePhoto() {
+  updateprofile.style.display = "block";
+  changephotoform.style.display = "none";
+}
+
+
+loginBtn.addEventListener("click",login);
+signupBtn.addEventListener("click",signup);
+logoutBtn.addEventListener("click",logout);
+postsignupBtn.addEventListener("click",fillSignUpForm);
+
+switchToSignUpBtn.addEventListener("click",switchToSignUp);
+switchToLogInBtn.addEventListener("click",switchToLogIn);
+
+moreBtn.addEventListener("click",showMore);
+backtoProfileBtn.addEventListener("click",dontShowMore);
+updateProfileBtn.addEventListener("click",updateProfile);
+backToMoreBtn.addEventListener("click",dontUpdateProfile);
+
+changeUsernameBtn.addEventListener("click",updateUsername);
+dontChangeUsernameBtn.addEventListener("click",dontUpdateUsername);
+
+changePhotoBtn.addEventListener("click",updatePhoto);
+dontChangePhotoBtn.addEventListener("click",dontUpdatePhoto);
+
+submitUsernameChange.addEventListener("click",updateNewUsername)
+submitPhotoChange.addEventListener("click",submitNewPhoto)
+var dp;
+function submitNewPhoto() {
+  console.log(file)
+  var storage = getStorage();
+  var uidd = currentUserId;
+  uidd = uidd.concat("/profile/"+ file.name);
+  console.log(uidd)
+  var storageRef = sref(storage, uidd);
+  uploadBytes(storageRef, file).then((snapshot) => {
+  console.log('Uploaded a blob or file!');
+}).then(
+  update(ref(db, 'users/' + currentUserId), {
+    dp: file.name
+      }));
+}
+function changePhoto(){
+  
+  var storage = getStorage();
+  var uidd = currentUserId;
+  var profilelocation = currentUserId + "/profile/" + dp;
+  getDownloadURL(sref(storage, profilelocation))
+    .then((url) => {
+      const img = document.getElementById('userdp');
+      const img2 = document.getElementById('userdp2');
+    img.setAttribute('src', url);
+    img2.setAttribute('src', url);
+    });
+
+}
+</script>
+
+<script>
+  function createcard(){
+      
+      if (cardcount%3==1){
+
+        if (cardcount!=1){
+          $('#cardspacer').clone().appendTo('#cardholder');
+          $('#cardtemplate').clone().appendTo('#cardholder');
+        }
+        else {
+          $('#cardtemplate').clone().appendTo('#cardholder');
+        }
+      
+    }
+    if (cardcount%3==2){
+      $('#cardspacer').clone().appendTo('#cardholder');
+      $('#cardtemplate').clone().appendTo('#cardholder');
+    }
+    if (cardcount%3==0){
+      $('#cardtemplate').clone().appendTo('#cardholder');
+    }
+    cardcount++;
+    console.log(cardcount)
+    }
+</script>
+
+
+</body>
+</html>

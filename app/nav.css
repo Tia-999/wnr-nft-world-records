@@ -1,0 +1,42 @@
+nav{
+    position: sticky;
+    top: 2px;
+} 
+
+body{
+    font-family: Poppins;
+}
+
+td{
+    border-bottom: none;
+}
+
+
+.titleWNR{
+    display:inline;
+    float:left;
+    width: 83px;
+    height: 30px;
+    margin-left:  117px;
+    padding-top:3.4vh;
+    font-weight:300;
+    color:white;
+}
+ul{
+    list-style-type: none;
+    padding: 0;
+    margin-left: 285px;
+}
+li{
+    
+    margin-top: 28px;
+    float:left;
+}
+li a{
+    
+    padding: 14px 16px;
+    display:inline;
+    color:white;
+    text-decoration: none;
+
+}
