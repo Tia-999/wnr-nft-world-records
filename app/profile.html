@@ -373,6 +373,7 @@ var instagram = document.getElementById("instagram");
 var facebook = document.getElementById("facebook");
 var twitter = document.getElementById("twitter");
 var bio = document.getElementById("bio");
+var profileform = document.getElementById("favsection");
 
 
       var editBtn = document.getElementById("editBtn")
@@ -478,6 +479,7 @@ function pageLoad(){
       loginform.style.display = "none";
       signupform.style.display = "none";
       logoutform.style.display = "block";
+      profileform.style.display = "block";
       updateLogout();
         }).then(
   updateProfileFields());   
@@ -594,7 +596,6 @@ function signup(){
     if (user) {      //logged in
       currentUser = auth.currentUser;
       currentUserId = user.uid;
-      document.getElementById("favsection").style.display= "block";
       updateLogout();
       
       

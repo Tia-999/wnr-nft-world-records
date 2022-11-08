@@ -1,12 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<html>
+ <head>
+
+    <title>WNR.</title>
+    <meta charset="utf-8" name="viewport" content="width=contentdevice,initial scale=1.0">
+
+    <link href="/assets/css/skeleton.css" rel="stylesheet">
+    <link href="/assets/css/form.css" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+ 
 </head>
-<body>
-    nice make a nft
-</body>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js";
+  import { getDatabase,get, ref, set, child, update, remove} from "https://www.gstatic.com/firebasejs/9.5.0/firebase-database.js";
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.5.0/firebase-auth.js";
+  import { ref as sref, getStorage, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-storage.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+  
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyDudrwO8MYKMltPDS2PQsmF7kX4LpbZdFM",
+    authDomain: "wnriwp.firebaseapp.com",
+    databaseURL: "https://wnriwp-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "wnriwp",
+    storageBucket: "wnriwp.appspot.com",
+    messagingSenderId: "857393965279",
+    appId: "1:857393965279:web:f65efacc67f04e6055a16a"
+  };
+  
+  
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db= getDatabase(app);
+  const auth = getAuth();
+  window.onload = pageLoad;
+  var currentUserUsername
+function pageLoad(){
+
+  
+  onAuthStateChanged(auth, (user) => {
+    
+    if (user) {  
+      const dbRef = ref(getDatabase());
+      var tempusernamesearch = "users/" + user.uid
+
+      console.log(tempusernamesearch);
+
+      get(child(dbRef, tempusernamesearch)).then((snapshot) => {
+      if (snapshot.exists()) {
+        currentUserUsername = snapshot.val().username;
+        console.log(snapshot.val().username);
+          }
+      updatePageUsername(currentUserUsername);
+        });   
+      }
+        else {
+            console.log("you are guest user please log in");
+            updatePageUsername("guest user");
+    }
+  });
+}
+
+function updatePageUsername(usernameyehai){
+    var placeholder = document.getElementById("usernameph");
+    var text =  " Username:- "+ usernameyehai;
+    placeholder.innerHTML = text;    
+}
+
+</script>
+
+ <body>
+    <header>
+        <nav>
+            <table>
+            <tr>
+            <td><h3 class="title"><strong>WNR.</strong></h3></td>
+            <td>
+                <ul> 
+                    <li><a href="/app/index.html">Hall of WNRs</a></li>
+                    <li><a href="/app/makeanft.html">Make a Record</a></li>
+                    <li><a href="/about_us.html">About Us</a></li>
+                    <li><a href="/support_us.html">Support</a></li>
+
+                </ul> 
+            </td>
+            <td><a href="/app/profile.html"><button class=firstb>PROFILE</button></a> </td>             
+            </tr>
+            </table>
+        </nav>
+    </header>
+    <main>
+       
+        <section>
+            <div class="row">
+                <div class="six columns intro ">
+            <p class="atext">Make Your Record<br> Now On Blockchain!</p>
+            <p class="btext">World's First Blockchain Based World Record Registry Powered By Etherium.
+                There's No Need To Trust Us. We're Immutable By Nature!
+            </p>
+          
+            <table class="twob">
+                <tr>
+                    <td><a href="/app/index.html"> <button class="thirdb">BROWSE OTHER RECORDS</button></a></td>
+                </tr>
+            </table>
+
+    </div>
+        <div class="forms">
+        <fieldset class="form">
+            <legend>Registry Form </legend>
+            <form action="">
+                <div id="usernameph" style="font-size: 20px;">Username:- Guest User</div>
+                <label for="nfttitle">NFT Title</label>
+                <input type="text" style="width: 400px;" placeholder="Roadway to Heaven" required>
+
+                <label for="name">Description</label>
+                <input type="text" style="width: 400px;" placeholder="Describe your record" required>
+
+                <label for="name">Address Of Record</label>
+                <input type="text" style="width: 400px;" placeholder="Location At Which Record Was Made" required>
+                <input type="text" style="width: 100px;" placeholder="Country" required>
+ 
+                <br>
+                <div class="" style="display: inline-block; width: 200px;">
+                <label for="name">Image Proof 1</label>
+                <input type="file" style="width: 400px;" placeholder="Utopia" required>
+                </div>
+                <div class="" style="display: inline-block; width: 200px;">
+                    <label for="name">Image Proof 2</label>
+                    <input type="file" style="width: 400px;" placeholder="Utopia" required>
+                    </div>
+
+                <input type="submit" value="submit" class="thirdb" name="submit" style="color: white;">
+            </form>
+        </fieldset>
+    </div>
+</div>
+    </section>
+    </main>
+ </body>
 </html>

@@ -3,7 +3,24 @@
    
 }
 
-
+::-webkit-scrollbar {
+    width: 0.8vw;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: black; 
+    border: 2px solid rgb(163, 163, 163);
+    border-radius: 10px;
+  }
+   
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(225deg, #7de1ff 14.89%, #933FFE 85.85%);
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(225deg, #18C8FF 14.89%, #933FFE 85.85%);
+  }
+  
 body{
     background-color:  #0B0B0F;
 }
@@ -350,6 +367,8 @@ fieldset {
     border-radius: 10px;
     font-size: 30px;
     padding: 30px;
+    padding-top: 20px;
+    padding-bottom: 4px;
 }
 .forms{
     float: left;
