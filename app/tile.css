@@ -50,7 +50,6 @@ height: 12px;
 display:block;
 margin-left: auto;
 margin-right: auto;
-width: 80%;
 }
 .tilecontent h2 {
 font-family: inherit;
@@ -66,5 +65,11 @@ width: 5px;
 display: inline-block;
 }
 .tilecontent .contentendspacer{
-height: 8px;
+height: 0px;
+}
+
+.tileimg {
+    width: 100%;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
 }

@@ -15,19 +15,80 @@
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
       <link rel="stylesheet" href="tile.css" />
-      <link rel="stylesheet" href="in">
+      <link rel="stylesheet" href="in" />
       <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet"
       />
+      <title>WNR.</title>
+
+      <link rel="icon" type="image/png" href="/icon.png" />
+      <script>
+        var btn1 = document.getElementById("copyBtn");
+       
+        btn1.addEventListener('click', myFunction);
+        function myFunction() {
+          navigator.clipboard.writeText("0xc28De126e148361CaD06a235EB39651652360ba0");
+          window.alert("Copied");
+        }
+      </script>
     </head>
+
+    <style>
+      .tooltip {
+        position: relative;
+        display: inline-block;
+      }
+
+      .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 140px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px;
+        position: absolute;
+        z-index: 1;
+        bottom: 150%;
+        left: 50%;
+        margin-left: -75px;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .tooltip .tooltiptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+      }
+
+      .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+      }
+    </style>
+
     <body>
       <header>
         <nav>
           <table>
             <tr>
               <td>
-                <h3 class="title"><strong>WNR.</strong></h3>
+                <h3 class="title">
+                  <strong
+                    ><a
+                      href="/index.html"
+                      style="color: white; text-decoration: none"
+                      >WNR.</a
+                    ></strong
+                  >
+                </h3>
               </td>
               <td>
                 <ul>
@@ -37,53 +98,75 @@
                   <li><a href="/support_us.html">Support</a></li>
                 </ul>
               </td>
-              <td><button class="firstb">Login/Signup</button></td>
+              <td>
+                <a href="/app/profile.html"
+                  ><button class="firstb">PROFILE</button></a
+                >
+              </td>
             </tr>
           </table>
         </nav>
       </header>
       <main>
+      
+
         <section>
+          <input type="text" value="Hello World" id="myInput" style="display:none;">
           <div class="row">
-            <div class="six columns intro">
-              <p class="atext">
-                Support Us
-              </p>
-              <p class="btext">
-                World's First Blockchain Based World Record Registry Powered By
-                Etherium. There's No Need To Trust Us. We're Immutable By
-                Nature! World's First Blockchain Based World Record Registry Powered By
-                Etherium. There's No Need To Trust Us. We're Immutable By
-                Nature! World's First Blockchain Based World Record Registry Powered By
-                Etherium. There's No Need To Trust Us. We're Immutable By
-                Nature! World's First Blockchain Based World Record Registry Powered By
-                Etherium. There's No Need To Trust Us. We're Immutable By
-                Nature! 
+            <div class="twelve columns intro" style="padding-right: 120px">
+              <p class="atext" style="margin-bottom: 0px">Support Us</p>
+              <p class="btext" style="font-size: 20px">
+                You can support us by giving donations of $BTC or $USDT
+                cryptocurrency at this address. <br />
+                <br />
+              <span style="color: white;">Click To Copy </span> 
+                <button
+                  onclick="myFunction()"
+                  style="
+                    background: linear-gradient(
+                      225deg,
+                      #18c8ff 14.89%,
+                      #933ffe 85.85%
+                    );
+                    color: white;
+                    width: 560px;
+                    font-size: 18px;
+                    margin-top: 20px;
+                    font-weight: 400;
+                    margin-left:15px;
+                  "
+                  value="0xc28De126e148361CaD06a235EB39651652360ba0"
+                >
+                  0xc28De126e148361CaD06a235EB39651652360ba0
+                </button>
+
+              
+                <br>
+
+                <span style="color: white; margin-left: 20px">OR</span>
+
+
+                <button
+                  style="
+                    background: linear-gradient(
+                      225deg,
+                      #18c8ff 14.89%,
+                      #933ffe 85.85%
+                    );
+                    color: white;
+                    width: 500px;
+                    font-size: 18px;
+                    margin-top: 20px;
+                    font-weight: 400;
+                    
+                    margin-left:15px;
+                  "
+                >
+                  DONATE HERE VIA DEBITCARD/UPI/CREDITCARD
+                </button>
+
               </p>
             </div>
-
-            <!-- SPECIAL CARD FOR LANDING PAGE -->
-            <div
-              class="four columns tile card landingpagecard"
-              id="cardtemplate"
-            >
-              <div class="cardhaibc" id="cardhaibc">
-                <div class="tileheader">
-                  <div class="tiletitle" id="tiletitle">Roadway to Heaven</div>
-                  <div id="tilecreator" class="tilecreator">by: devhaikya</div>
-                </div>
-                <div class="tilecontent">
-                  <img
-                    src="assets/image/vector-illustration-mountain-landscape_1441-71.webp"
-                    alt=""
-                  />
-                </div>
-              </div>
-            </div>
-
-           
-
-            
 
             <!--             
             <div class="three columns tile card" id="cardtemplate">
@@ -104,32 +187,77 @@
           </div>
         </section>
 
-        <footer>
-    
-          <section class="footer-end">
-              <div class="container1">
-                  <div class="last">
-                      <p class="last1"><b>WNR.</b></p>
-                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                           It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
-                      <p>© 2022 VIT J COMPONENT</p>
-                  </div>
-                  <div class="last3">
-                     <table class="last2">
-                      <tr>
-                          <td><a href=#hoe>Home</a></td>
-                          <td><a href=#us>About Us</a></td>
-                      </tr>
-                      <tr>
-                          <td><a href="#cont">Contact Us</a></td>
-                          <td><a href="abou">About VIT</a></td>
-                      </tr>
-                     </table>
-                  </div>
-              </div>
-          </section>
-      </footer>
+        <style>
+          .dev-row {
+            display: flex;
+            margin-bottom: 50px;
+            width: 100%;
+          }
 
+          .card25 {
+            margin-top: 10px;
+            margin-right: 3%;
+            margin-left: 3%;
+            padding: 40px 30px;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            background: #1a1b23;
+            border-radius: 20px;
+            color: white;
+          }
+
+          .card25 > h1 {
+            margin-top: 6px;
+            font-weight: 600;
+            font-size: 20px;
+          }
+
+          .card25 > p {
+            color: #f8d146;
+            font-size: 15px;
+          }
+
+          .page-heading {
+            color: white;
+            text-align: center;
+            margin-top: 100px;
+          }
+        </style>
+
+        <footer>
+          <section class="footer-end">
+            <div class="container1">
+              <div class="last">
+                <p class="last1"><b>WNR.</b></p>
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a type
+                  specimen book. It has survived not only five centuries, but
+                  also the leap into electronic typesetting, remaining
+                  essentially unchanged.
+                </p>
+                <p>© 2022 VIT J COMPONENT</p>
+              </div>
+              <div class="last3">
+                <table class="last2">
+                  <tr>
+                    <td><a href="#hoe">Home</a></td>
+                    <td><a href="#us">About Us</a></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#cont">Contact Us</a></td>
+                    <td><a href="abou">About VIT</a></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </section>
+        </footer>
       </main>
     </body>
   </html>

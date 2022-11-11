@@ -12,7 +12,27 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
- 
+    <title>WNR.</title>
+    
+    <link rel="icon" type="image/png" href="/icon.png" />
+
+    <script>
+         let file1 = {};
+         let file2 = {};
+         let file3 = {};
+      function chooseFile1(e){
+        console.log("choosefileworking")
+              file1 = e.target.files[0];
+            }
+            function chooseFile2(e){
+        console.log("choosefileworking")
+              file2 = e.target.files[0];
+            }
+            function chooseFile3(e){
+        console.log("choosefileworking")
+              file3 = e.target.files[0];
+            }
+    </script>
 </head>
 <script type="module">
     // Import the functions you need from the SDKs you need
@@ -42,6 +62,7 @@
   const auth = getAuth();
   window.onload = pageLoad;
   var currentUserUsername
+  var currentUserId
 function pageLoad(){
 
   
@@ -50,7 +71,7 @@ function pageLoad(){
     if (user) {  
       const dbRef = ref(getDatabase());
       var tempusernamesearch = "users/" + user.uid
-
+      currentUserId = user.uid
       console.log(tempusernamesearch);
 
       get(child(dbRef, tempusernamesearch)).then((snapshot) => {
@@ -66,8 +87,89 @@ function pageLoad(){
             updatePageUsername("guest user");
     }
   });
+  
+  }
+
+  var submitBtn = document.getElementById("submitBtn");
+  submitBtn.addEventListener("click",makearecord);
+  
+  function makearecord(){
+
+
+       var abhikatime =  new Date();;
+
+    var temphash = generateString(5);
+    var nfttitle = document.getElementById("nfttitle").value;
+    var nftdesc = document.getElementById("nftdesc").value;
+    var nftadd = document.getElementById("nftadd").value;
+   
+    var nftdate = abhikatime;
+    var nftcountry = document.getElementById("nftcountry").value;
+    console.log(temphash,nfttitle, nftdesc,nftadd,nftdate,nftcountry, currentUserUsername, currentUserId);
+    console.log(file1);
+    console.log(file2);
+    console.log(file3);
+    
+    update(ref(db, 'nft/' + temphash), {
+          id: temphash,
+          title: nfttitle,
+          desc: nftdesc,
+          address: nftadd,
+          img1: file1.name,
+          img2: file2.name,
+          nftimg: file3.name,
+          datemade: nftdate,
+          countrymade: nftcountry,
+          username: currentUserUsername,
+          uid: currentUserId
+    });
+
+    update(ref(db, "users/" + currentUserId + "/cardsmade/" + temphash), {
+        0: temphash
+    });
+    setTimeout(submitPhotos(temphash),'2000');
 }
 
+function submitPhotos(nfthash){
+    var storage = getStorage();
+    var temphash = nfthash;
+    var temphash1 = nfthash+ "/proof1/"+ file1.name;
+    var temphash2 = nfthash+ "/proof2/"+ file2.name;
+    var temphash3 = nfthash+ "/nftimg/"+ file3.name;
+    var storageRef1 = sref(storage, temphash1);
+    var storageRef2 = sref(storage, temphash2);
+    var storageRef3 = sref(storage, temphash3);
+    
+    window.alert("Please wait for few seconds while we upload the photos.");
+    uploadBytes(storageRef1, file1).then((snapshot) => {
+    console.log('Uploaded file 1!');
+    window.alert("PROOF 1 UPLOADED");
+    });
+    uploadBytes(storageRef2, file2).then((snapshot) => {
+    console.log('Uploaded file 2!');
+    window.alert("PROOF 2 UPLOADED");
+    });
+    uploadBytes(storageRef3, file3).then((snapshot) => {
+    console.log('Uploaded file nftimg!');
+        
+    window.alert("NFT IMAGE UPLOADED");
+    });
+    window.alert("Please wait for few seconds while we upload the photos.");
+    
+}
+
+
+const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+function generateString(length) {
+    let result = '';
+    const charactersLength = characters.length;
+    for ( let i = 0; i < length; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+
+    return result;
+}
 function updatePageUsername(usernameyehai){
     var placeholder = document.getElementById("usernameph");
     var text =  " Username:- "+ usernameyehai;
@@ -77,6 +179,23 @@ function updatePageUsername(usernameyehai){
 </script>
 
  <body>
+      <!--             
+            <div class="three columns tile card" id="cardtemplate">
+                <div class="cardhaibc" id="cardhaibc">
+                    <div class="tileheader">
+                    <div class="tiletitle" id="tiletitle">
+                        NFT Title
+                    </div>
+                    <div id="tilecreator" class="tilecreator">
+                        Creator
+                    </div>
+                    </div>
+                    <div class="tilecontent">
+                    <img src="assets/image/ape.jpg" alt="">
+                    </div>
+                </div>
+            </div> -->
+            
     <header>
         <nav>
             <table>
@@ -116,30 +235,35 @@ function updatePageUsername(usernameyehai){
         <div class="forms">
         <fieldset class="form">
             <legend>Registry Form </legend>
-            <form action="">
+ 
                 <div id="usernameph" style="font-size: 20px;">Username:- Guest User</div>
                 <label for="nfttitle">NFT Title</label>
-                <input type="text" style="width: 400px;" placeholder="Roadway to Heaven" required>
+                <input type="text" style="width: 400px;" id = "nfttitle" placeholder="Roadway to Heaven" required>
 
                 <label for="name">Description</label>
-                <input type="text" style="width: 400px;" placeholder="Describe your record" required>
+                <input type="text" style="width: 400px;" id="nftdesc" placeholder="Describe your record" required>
 
                 <label for="name">Address Of Record</label>
-                <input type="text" style="width: 400px;" placeholder="Location At Which Record Was Made" required>
-                <input type="text" style="width: 100px;" placeholder="Country" required>
+                <input type="text" style="width: 400px;" id="nftadd" placeholder="Location At Which Record Was Made" required>
+                <input type="text" style="width: 100px;"id="nftcountry" placeholder="Country" required>
  
                 <br>
                 <div class="" style="display: inline-block; width: 200px;">
                 <label for="name">Image Proof 1</label>
-                <input type="file" style="width: 400px;" placeholder="Utopia" required>
+                <input type="file" onchange="chooseFile1(event)" id="nftproof1"style="width: 400px;" placeholder="Utopia" required>
                 </div>
                 <div class="" style="display: inline-block; width: 200px;">
                     <label for="name">Image Proof 2</label>
-                    <input type="file" style="width: 400px;" placeholder="Utopia" required>
+                    <input id="nftproof2"  onchange="chooseFile2(event)" type="file" style="width: 400px;" placeholder="Utopia" required>
                     </div>
+                    <br> 
+                    <div class="" style="display: inline-block; width: 200px;">
+                        <label for="name">NFT Image</label>
+                        <input type="file" onchange="chooseFile3(event)" id="nftimg" style="width: 400px;" placeholder="Utopia" required>
+                        </div>
 
-                <input type="submit" value="submit" class="thirdb" name="submit" style="color: white;">
-            </form>
+
+                <input type="submit" value="submit" class="thirdb" id="submitBtn" name="submit" style="color: white;">
         </fieldset>
     </div>
 </div>
